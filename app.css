@@ -5,7 +5,7 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-div {
+div.intro {
     display: flex;
     justify-content: center;
 }
@@ -16,4 +16,29 @@ h1 {
     padding: 0.1em 0.25em;
     margin: 0;
     border-radius: 0.2em;
+}
+
+div.item {
+    background-color: rgba(0, 0, 0, 0.67);
+    color: white;
+    width: 80%;
+    margin: 12px auto;
+    border-radius: 0.7rem;
+}
+
+div.item img {
+    width: 100%;
+    border-radius: 0.7rem 0.7rem 0 0;
+}
+
+div.item-text {
+    padding: 0 17px 12px;
+}
+
+div.item-text h2 {
+    margin: 10px 0;
+}
+
+div.item-text p {
+    margin: 0;
 }
