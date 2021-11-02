@@ -50,3 +50,11 @@ div.item-text h2 {
 div.item-text p {
     margin: 0;
 }
+
+div.item div.box {
+    transition: transform 0.2s ease-out;
+}
+
+div.item div.box:hover {
+    transform: translateY(-5px);
+}
