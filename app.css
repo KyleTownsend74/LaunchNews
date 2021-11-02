@@ -30,6 +30,10 @@ div.item {
     margin: 12px auto;
 }
 
+div.item a {
+    text-decoration: none;
+}
+
 div.item img {
     width: 100%;
     border-radius: 0.7rem 0.7rem 0 0;
