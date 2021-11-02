@@ -1,5 +1,3 @@
-displayArticles();
-
 // Make network request for articles
 async function getArticles() {
     const res = await axios.get("https://api.spaceflightnewsapi.net/v3/articles");
@@ -28,7 +26,7 @@ async function displayArticles() {
             summary = article.summary;
 
             // Create and insert the HTML
-            mainContent.insertAdjacentHTML("afterbegin", 
+            mainContent.insertAdjacentHTML("beforeend", 
             `<div class="item">
                 <a href="${articleUrl}">
                     <div class="box">
