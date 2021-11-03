@@ -75,10 +75,12 @@ async function displayArticles() {
     }
 }
 
+// Make passed in element visible
 function makeVisible(element) {
     element.classList.remove("invisible");
 }
 
+// Make passed in element invisible
 function makeInvisible(element) {
     element.classList.add("invisible");
 }
