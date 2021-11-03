@@ -18,6 +18,9 @@ loader.addEventListener("transitionend", () => {
     }
 });
 
+// Display articles on page
+displayArticles();
+
 // Make network request for articles
 async function getArticles() {
     const res = await axios.get("https://api.spaceflightnewsapi.net/v3/articles");
