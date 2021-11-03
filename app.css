@@ -81,3 +81,16 @@ div.item div.box:hover {
         width: 100%;
     }
 }
+
+.fade {
+    animation: fadeAnim 2.5s;
+}
+
+@keyframes fadeAnim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

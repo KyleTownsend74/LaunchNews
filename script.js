@@ -27,7 +27,7 @@ async function displayArticles() {
 
             // Create and insert the HTML
             mainContent.insertAdjacentHTML("beforeend", 
-            `<div class="item">
+            `<div class="item fade">
                 <a href="${articleUrl}" target="_blank" rel="noopener noreferrer">
                     <div class="box">
                         <img src="${imageUrl}" alt="article image">
