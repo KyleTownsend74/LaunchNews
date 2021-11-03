@@ -1,3 +1,10 @@
+const intro = document.querySelector(".intro");
+
+// Make intro content visible, wait until page loads to trigger CSS transition
+window.onload = () => {
+    intro.classList.remove("invisible");
+}
+
 // Make network request for articles
 async function getArticles() {
     const res = await axios.get("https://api.spaceflightnewsapi.net/v3/articles");
@@ -27,7 +34,7 @@ async function displayArticles() {
 
             // Create and insert the HTML
             mainContent.insertAdjacentHTML("beforeend", 
-            `<div class="item fade">
+            `<div class="item">
                 <a href="${articleUrl}" target="_blank" rel="noopener noreferrer">
                     <div class="box">
                         <img src="${imageUrl}" alt="article image">
@@ -43,6 +50,9 @@ async function displayArticles() {
                 </a>
             </div>`);
         }
+
+        // After all items are added to page, make the main content visible
+        mainContent.classList.remove("invisible");
     } catch(e) {
         console.log("Error getting article data:", e);
     }
