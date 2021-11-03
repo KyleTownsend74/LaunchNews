@@ -1,6 +1,6 @@
 # LaunchNews
 
-**LaunchNews** is a web page to display the most recent space launch related news.
+**LaunchNews** is a web page to display the most recent space launch related news. The page can be viewed [here](https://kyletownsend74.github.io/LaunchNews/).
 
 ## Features
 
@@ -17,4 +17,4 @@ The web page has the following features:
 ## Libraries and Services Used
 
 - [Spaceflight News API](https://github.com/spaceflightnewsapi/spaceflightnewsapi) - API to get spaceflight related news.
-- [Axios](https://axios-http.com/docs/intro) - HTTP client for both frontend and backend use.
+- [Axios](https://axios-http.com/docs/intro) - HTTP Client for both frontend and backend use.
