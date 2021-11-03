@@ -60,6 +60,32 @@ div.item div.box:hover {
     transform: translateY(-5px);
 }
 
+#loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border: 5px solid lightblue;
+    border-top: 5px solid plum;
+    border-bottom: 5px solid plum;
+    border-radius: 50%;
+    animation: load 1s linear infinite;
+}
+
+@keyframes load {
+    from {
+        transform: rotateZ(0);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
 @media (max-width: 1024px) {
     div.item {
         width: 70%;

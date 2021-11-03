@@ -1,9 +1,22 @@
+// HTML elements to modify
 const intro = document.querySelector(".intro");
+const loader = document.querySelector("#loader");
 
-// Make intro content visible, wait until page loads to trigger CSS transition
+// Keep track of when articles have been loaded
+let loaded = false;
+
+// Make initial content visible, wait until page loads to trigger CSS transition
 window.onload = () => {
     intro.classList.remove("invisible");
+    loader.classList.remove("invisible");
 }
+
+// Remove loader after articles have loaded and fading to invisible transition is complete
+loader.addEventListener("transitionend", () => {
+    if(loaded) {
+        loader.style.display = "none";
+    }
+});
 
 // Make network request for articles
 async function getArticles() {
@@ -16,6 +29,9 @@ async function displayArticles() {
     try {
         // Get articles to display
         const articles = await getArticles();
+
+        // Notify script that articles have been loaded
+        loaded = true;
 
         // Set up variables to display content
         const mainContent = document.querySelector("main");
@@ -51,7 +67,8 @@ async function displayArticles() {
             </div>`);
         }
 
-        // After all items are added to page, make the main content visible
+        // After all items are added to page, change visibility of elements
+        loader.classList.add("invisible");
         mainContent.classList.remove("invisible");
     } catch(e) {
         console.log("Error getting article data:", e);
