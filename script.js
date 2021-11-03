@@ -7,8 +7,8 @@ let loaded = false;
 
 // Make initial content visible, wait until page loads to trigger CSS transition
 window.onload = () => {
-    intro.classList.remove("invisible");
-    loader.classList.remove("invisible");
+    makeVisible(intro);
+    makeVisible(loader);
 }
 
 // Remove loader after articles have loaded and fading to invisible transition is complete
@@ -68,9 +68,17 @@ async function displayArticles() {
         }
 
         // After all items are added to page, change visibility of elements
-        loader.classList.add("invisible");
-        mainContent.classList.remove("invisible");
+        makeInvisible(loader);
+        makeVisible(mainContent);
     } catch(e) {
         console.log("Error getting article data:", e);
     }
+}
+
+function makeVisible(element) {
+    element.classList.remove("invisible");
+}
+
+function makeInvisible(element) {
+    element.classList.add("invisible");
 }
