@@ -1,7 +1,7 @@
 body {
-    background: url("images/bg.jpg") no-repeat center fixed; 
+    background: url("images/bg.jpg") repeat scroll; 
     background-color: black;
-    background-size: cover;
+    background-size: 100%;
     font-family: "Montserrat", sans-serif;
 }
 
