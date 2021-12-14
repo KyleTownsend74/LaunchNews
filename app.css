@@ -16,7 +16,7 @@ h1 {
     text-align: center;
 }
 
-div.box {
+.box {
     color: white;
     background-color: rgba(0, 0, 0, 0.67);
     border-radius: 0.7rem;
@@ -58,6 +58,20 @@ div.item div.box {
 
 div.item div.box:hover {
     transform: translateY(-5px);
+}
+
+button {
+    display: block;
+    margin: 15px auto;
+    font-size: 1.3rem;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 0.6em 1.1em;
+    border: 1px solid white;
+}
+
+button:hover {
+    background-color: rgba(68, 68, 68, 0.67);
 }
 
 #loader {

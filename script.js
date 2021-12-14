@@ -1,6 +1,7 @@
 // HTML elements to modify
 const intro = document.querySelector(".intro");
 const loader = document.querySelector("#loader");
+const loadMoreButton = document.querySelector("button");
 
 // Keep track of when articles have been loaded
 let loaded = false;
@@ -37,7 +38,7 @@ async function displayArticles() {
         loaded = true;
 
         // Set up variables to display content
-        const mainContent = document.querySelector("main");
+        const content = document.querySelector("#content");
         let articleUrl;
         let title;
         let imageUrl;
@@ -52,7 +53,7 @@ async function displayArticles() {
             summary = article.summary;
 
             // Create and insert the HTML
-            mainContent.insertAdjacentHTML("beforeend", 
+            content.insertAdjacentHTML("beforeend", 
             `<div class="item">
                 <a href="${articleUrl}" target="_blank" rel="noopener noreferrer">
                     <div class="box">
@@ -72,7 +73,8 @@ async function displayArticles() {
 
         // After all items are added to page, change visibility of elements
         makeInvisible(loader);
-        makeVisible(mainContent);
+        makeVisible(content);
+        makeVisible(loadMoreButton);
     } catch(e) {
         console.log("Error getting article data:", e);
     }
