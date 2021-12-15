@@ -3,6 +3,9 @@ const intro = document.querySelector(".intro");
 const loader = document.querySelector("#loader");
 const loadMoreButton = document.querySelector("button");
 
+// Keep track of how many articles have been loaded
+let articlesLoaded = 0;
+
 // Keep track of when articles have been loaded
 let loaded = false;
 
@@ -24,7 +27,15 @@ displayArticles();
 
 // Make network request for articles
 async function getArticles() {
-    const res = await axios.get("https://api.spaceflightnewsapi.net/v3/articles");
+    // Set up configuration for network request
+    const config = {
+        params: {
+            _start: articlesLoaded
+        }
+    };
+
+    // Make the actual request
+    const res = await axios.get("https://api.spaceflightnewsapi.net/v3/articles", config);
     return res.data;
 }
 
@@ -46,6 +57,9 @@ async function displayArticles() {
 
         // Parse through article data
         for(let article of articles) {
+            // Add an article to articles loaded
+            articlesLoaded++;
+
             // Assign proper values to variables
             title = article.title;
             articleUrl = article.url;
@@ -75,10 +89,19 @@ async function displayArticles() {
         makeInvisible(loader);
         makeVisible(content);
         makeVisible(loadMoreButton);
+
+        // Enable load more button
+        loadMoreButton.disabled = false;
     } catch(e) {
         console.log("Error getting article data:", e);
     }
 }
+
+// Load more articles on click
+loadMoreButton.addEventListener("mouseup", () => {
+    displayArticles();
+    loadMoreButton.disabled = true;
+});
 
 // Make passed in element visible
 function makeVisible(element) {
