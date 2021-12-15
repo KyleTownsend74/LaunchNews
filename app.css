@@ -74,7 +74,11 @@ button:hover {
     background-color: rgba(68, 68, 68, 0.67);
 }
 
-#loader {
+button.disabled {
+    background-color: rgba(128, 128, 128, 0.67);
+}
+
+#primary-loader {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -83,6 +87,15 @@ button:hover {
     width: 80px;
     height: 80px;
     margin: auto;
+}
+
+#secondary-loader {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.loader {
     border: 5px solid lightblue;
     border-top: 5px solid plum;
     border-bottom: 5px solid plum;
@@ -128,4 +141,8 @@ button:hover {
 
 .fade {
     transition: opacity 2.5s;
+}
+
+.removed {
+    display: none;
 }

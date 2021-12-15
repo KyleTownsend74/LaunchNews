@@ -1,7 +1,11 @@
 // HTML elements to modify
 const intro = document.querySelector(".intro");
-const loader = document.querySelector("#loader");
+const primaryLoader = document.querySelector("#primary-loader");
+const secondaryLoader = document.querySelector("#secondary-loader");
 const loadMoreButton = document.querySelector("button");
+
+// Disable load more button by default
+loadMoreButton.disabled = true;
 
 // Keep track of how many articles have been loaded
 let articlesLoaded = 0;
@@ -12,13 +16,13 @@ let loaded = false;
 // Make initial content visible, wait until page loads to trigger CSS transition
 window.onload = () => {
     makeVisible(intro);
-    makeVisible(loader);
+    makeVisible(primaryLoader);
 }
 
 // Remove loader after articles have loaded and fading to invisible transition is complete
-loader.addEventListener("transitionend", () => {
+primaryLoader.addEventListener("transitionend", () => {
     if(loaded) {
-        loader.style.display = "none";
+        displayNone(primaryLoader);
     }
 });
 
@@ -86,12 +90,14 @@ async function displayArticles() {
         }
 
         // After all items are added to page, change visibility of elements
-        makeInvisible(loader);
+        makeInvisible(primaryLoader);
         makeVisible(content);
         makeVisible(loadMoreButton);
 
         // Enable load more button
         loadMoreButton.disabled = false;
+        displayElement(loadMoreButton);
+        displayNone(secondaryLoader);
     } catch(e) {
         console.log("Error getting article data:", e);
     }
@@ -101,6 +107,8 @@ async function displayArticles() {
 loadMoreButton.addEventListener("mouseup", () => {
     displayArticles();
     loadMoreButton.disabled = true;
+    displayNone(loadMoreButton);
+    displayElement(secondaryLoader);
 });
 
 // Make passed in element visible
@@ -111,4 +119,14 @@ function makeVisible(element) {
 // Make passed in element invisible
 function makeInvisible(element) {
     element.classList.add("invisible");
+}
+
+// Remove display none class from passed in element
+function displayElement(element) {
+    element.classList.remove("removed");
+}
+
+// Add display none class to passed in element
+function displayNone(element) {
+    element.classList.add("removed");
 }
